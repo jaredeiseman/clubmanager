@@ -2,5 +2,14 @@
 <form #addMemberForm="ngForm" (ngSubmit)="addMember(addMemberForm); false">
   <label for="name">Name: </label>
   <input name="name" type="text" ngModel>
+  <label for="email">Email: </label>
+  <input name="email" type="email" ngModel>
+  <label for="age">Age: </label>
+  <input name="age" type="number" ngModel>
+  <select name="role" ngModel>
+    <option value="member">Member</option>
+    <option value="treasurer">Treasurer</option>
+    <option value="president">President</option>
+  </select>
   <button type="submit">Submit</button>
 </form>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AppService } from '../app.service';
+import { Member } from '../member.model';
 
 @Component({
   selector: 'app-add-member',
@@ -8,13 +10,13 @@ import { NgForm } from '@angular/forms';
 })
 export class AddMemberComponent implements OnInit {
 
-  constructor() { }
+  constructor(public appService: AppService) { }
 
   ngOnInit() {
   }
 
   addMember(form: NgForm) {
-    console.log(form.value.name);
+    this.appService.addMember(new Member(form.value.name, form.value.role, form.value.email, parseInt(form.value.age)));
   }
 
 }
