@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Member } from './member.model';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AppService {
   members: FirebaseListObservable<any[]>;
+  currentRoute = this.router.url;
 
-  constructor(private database: AngularFireDatabase) {
+  constructor(private database: AngularFireDatabase, public router: Router) {
     this.members = database.list('members');
   }
 
