@@ -1,0 +1,6 @@
+<h2>Add a new member</h2>
+<form #addMemberForm="ngForm" (ngSubmit)="addMember(addMemberForm); false">
+  <label for="name">Name: </label>
+  <input name="name" type="text" ngModel>
+  <button type="submit">Submit</button>
+</form>
