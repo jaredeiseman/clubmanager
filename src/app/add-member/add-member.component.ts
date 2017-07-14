@@ -16,7 +16,7 @@ export class AddMemberComponent implements OnInit {
   }
 
   addMember(form: NgForm) {
-    this.appService.addMember(new Member(form.value.name, form.value.role, form.value.email, parseInt(form.value.age)));
+    this.appService.addMember(new Member(form.value.name, form.value.role, form.value.email, parseInt(form.value.age), form.value.bio));
   }
 
 }

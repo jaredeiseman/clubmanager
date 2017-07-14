@@ -13,7 +13,6 @@ export class AppService {
   }
 
   //Get Methods
-
   getMembers() {
     return this.members;
   }
@@ -37,5 +36,4 @@ export class AppService {
   deleteMember(member) {
     this.getMemberById(member.$key).remove();
   }
-
 }

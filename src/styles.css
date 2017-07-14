@@ -2,3 +2,6 @@
 .navbar {
   border-radius: 0;
 }
+.capitalize {
+  text-transform: capitalize;
+}

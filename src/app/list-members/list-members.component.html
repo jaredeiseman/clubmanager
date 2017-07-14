@@ -1,20 +1,55 @@
 <h2>Member List</h2>
-<span *ngFor="let member of appService.members | async">
 
-  <p *ngIf="!editing" (click)="goToDetail(member)">{{member.name}}</p>
-  <input *ngIf="editing" type="text" [(ngModel)]="member.name">
-
-  <p *ngIf="!editing" (click)="goToDetail(member)">{{member.email}}</p>
-  <input *ngIf="editing" type="email" [(ngModel)]="member.email">
-
-  <p *ngIf="!editing" (click)="goToDetail(member)">{{member.age}}</p>
-  <input *ngIf="editing" type="number" [(ngModel)]="member.age">
-
-  <p *ngIf="!editing" (click)="goToDetail(member)">{{member.role}}</p>
-  <input *ngIf="editing" type="text" [(ngModel)]="member.role">
-
-  <div *ngIf="currentRoute === '/admin'">
-    <button (click)="toggleEdit(member)">Edit</button>
-    <button (click)="deleteMember(member)">Delete</button>
+<div *ngIf="currentRoute !== '/admin'">
+  <div class="media" *ngFor="let member of appService.members | async">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="https://www.fillmurray.com/64/64" alt="Fill Murray Image">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading capitalize">{{member.name}} - {{member.role}} &nbsp;&nbsp;<small><a (click)="goToDetail(member)">More Details &rarr;</a></small></h4>
+      <p>{{member.bio}}</p>
+    </div>
   </div>
-</span>
+</div>
+
+<form *ngIf="currentRoute === '/admin'">
+  <div *ngFor="let member of appService.members | async">
+
+    <p *ngIf="!editing" (click)="goToDetail(member)">Name: {{member.name}}</p>
+    <div class="form-group" *ngIf="editing">
+      <label for="name">Name:</label>
+      <input type="text" name="name" class="form-control" [(ngModel)]="member.name">
+    </div>
+
+    <p *ngIf="!editing" (click)="goToDetail(member)">Age: {{member.age}}</p>
+    <div class="form-group" *ngIf="editing">
+      <label for="age">Age:</label>
+      <input type="text" name="age" class="form-control" [(ngModel)]="member.age">
+    </div>
+
+    <p *ngIf="!editing" (click)="goToDetail(member)">Email: {{member.email}}</p>
+    <div class="form-group" *ngIf="editing">
+      <label for="email">Email:</label>
+      <input type="email" name="email" class="form-control" [(ngModel)]="member.email">
+    </div>
+
+    <p *ngIf="!editing" (click)="goToDetail(member)">Role: {{member.role}}</p>
+    <div class="form-group" *ngIf="editing">
+      <label for="role">Role:</label>
+      <input type="text" name="role" class="form-control" [(ngModel)]="member.role">
+    </div>
+
+    <p *ngIf="!editing" (click)="goToDetail(member)">Bio: {{member.bio}}</p>
+    <div class="form-group" *ngIf="editing">
+      <label for="bio">Bio:</label>
+      <textarea name="bio" class="form-control" [(ngModel)]="member.bio"></textarea>
+    </div>
+
+    <div>
+      <button (click)="toggleEdit(member)" class="btn btn-success">Edit</button>
+      <button (click)="deleteMember(member)" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</form>

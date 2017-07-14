@@ -3,6 +3,7 @@ export class Member {
     public name: string,
     public role: string,
     public email: string,
-    public age: number
+    public age: number,
+    public bio: string
   ) {}
 }
