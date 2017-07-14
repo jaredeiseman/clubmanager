@@ -1,0 +1,18 @@
+<h2>Super Secret Members Only Chatroom</h2>
+<form #userName="ngForm" (ngSubmit)="setUser(userName); false" *ngIf="!userName">
+  <div class="form-group">
+    <label for="username">What is your name?</label>
+    <input class="form-control" type="text" name="username" ngModel>
+  </div>
+  <button type="submit" class="btn btn-default">Begin</button>
+</form>
+
+<div id="chatroom" *ngIf="userName">
+  <div id="log" scroll-glue>
+    <p *ngFor="let msg of chatlog | async"><span [class]="checkName(msg)">{{msg.from}} {{msg.timestamp | formatTime}}:</span> {{msg.contents}}</p>
+  </div>
+  <form id="send-form" #sendForm="ngForm" (ngSubmit)="sendMessage(sendForm)">
+    <input class="form-control" name="message" type="text" #text ngModel>
+    <button type="submit" class="btn btn-default" (click)="text.value = ''">Send</button>
+  </form>
+</div>

@@ -5,3 +5,22 @@
 .capitalize {
   text-transform: capitalize;
 }
+
+#log {
+  height: 600px;
+  overflow: auto;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.me {
+  color: blue;
+  font-weight: bold;
+}
+
+.other {
+  color: red;
+  font-weight: bold;
+}

@@ -6,6 +6,7 @@ import { ListMembersComponent } from './list-members/list-members.component';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AddMemberComponent } from './add-member/add-member.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 const appRoutes: Routes = [
   {
@@ -32,7 +33,10 @@ const appRoutes: Routes = [
     path: 'addmember',
     component: AddMemberComponent
   },
-
+  {
+    path: 'chatroom',
+    component: ChatroomComponent
+  }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

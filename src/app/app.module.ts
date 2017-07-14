@@ -15,7 +15,10 @@ import { AdminComponent } from './admin/admin.component';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
 
 import { AppService } from './app.service';
+import { ChatroomService } from './chatroom.service';
 import { AddMemberComponent } from './add-member/add-member.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
+import { FormatTimePipe } from './format-time.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -32,7 +35,9 @@ export const firebaseConfig = {
     ListMembersComponent,
     AdminComponent,
     MemberDetailComponent,
-    AddMemberComponent
+    AddMemberComponent,
+    ChatroomComponent,
+    FormatTimePipe
   ],
   imports: [
     BrowserModule,
@@ -40,9 +45,9 @@ export const firebaseConfig = {
     HttpModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
-  providers: [AppService],
+  providers: [AppService, ChatroomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
