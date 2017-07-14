@@ -24,4 +24,8 @@ export class MemberDetailComponent implements OnInit {
     this.member = this.appService.getMemberById(this.memberId);
   }
 
+  back() {
+    this.router.navigate(['clubmembers']);
+  }
+
 }

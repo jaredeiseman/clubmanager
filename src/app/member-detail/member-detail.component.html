@@ -1,6 +1,5 @@
-<p>
-  {{(member | async)?.name}}
-  {{(member | async)?.email}}
-  {{(member | async)?.age}}
-  {{(member | async)?.role}}
-</p>
+<h2 class="capitalize">{{(member | async)?.name}} - <small>{{(member | async)?.role}}</small></h2>
+<h3>{{(member | async)?.email}}</h3>
+<p><small>{{(member | async)?.age}}</small></p>
+<p>{{(member | async)?.bio}}</p>
+<button class="btn btn-default" (click)="back();">Back To Member List</button>
