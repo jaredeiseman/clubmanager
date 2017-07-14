@@ -10,8 +10,14 @@ export class AppService {
     this.members = database.list('members');
   }
 
+  //Get Methods
+
   getMembers() {
     return this.members;
+  }
+
+  getMemberById(id) {
+    return this.database.object('members/' + id);
   }
 
   addMember(member: Member) {

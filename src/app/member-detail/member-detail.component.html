@@ -1,3 +1,6 @@
 <p>
-  member-detail works!
+  {{(member | async)?.name}}
+  {{(member | async)?.email}}
+  {{(member | async)?.age}}
+  {{(member | async)?.role}}
 </p>

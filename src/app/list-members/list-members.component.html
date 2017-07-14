@@ -1,4 +1,4 @@
 <h2>Member List</h2>
 <ul>
-  <li *ngFor="let member of appService.members | async">{{member.name}}</li>
+  <li *ngFor="let member of appService.members | async" (click)="goToDetail(member)">{{member.name}}</li>
 </ul>
