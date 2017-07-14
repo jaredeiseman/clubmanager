@@ -31,4 +31,9 @@ export class AppService {
     ref.update(member);
   }
 
+  //Delete Methods
+  deleteMember(member) {
+    this.getMemberById(member.$key).remove();
+  }
+
 }

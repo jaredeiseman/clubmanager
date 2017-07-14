@@ -31,4 +31,10 @@ export class ListMembersComponent implements OnInit {
     }
   }
 
+  deleteMember(member) {
+    if (confirm('Are you sure?')) {
+      this.appService.deleteMember(member);
+    }
+  }
+
 }
