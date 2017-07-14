@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class ListMembersComponent implements OnInit {
 
+  currentRoute: string = this.router.url;
+  editing: boolean = false;
+
   constructor(public appService: AppService, public router: Router) { }
 
   ngOnInit() {
@@ -16,6 +19,16 @@ export class ListMembersComponent implements OnInit {
 
   goToDetail(member) {
     this.router.navigate(['member', member.$key]);
+  }
+
+  toggleEdit(member) {
+    console.log(member);
+    if (this.editing === false) {
+      this.editing = true;
+    } else {
+      this.editing = false;
+      this.appService.updateMember(member);
+    }
   }
 
 }

@@ -20,8 +20,15 @@ export class AppService {
     return this.database.object('members/' + id);
   }
 
+  //Create Methods
   addMember(member: Member) {
     this.members.push(member);
+  }
+
+  //Update Methods
+  updateMember(member) {
+    var ref = this.getMemberById(member.$key);
+    ref.update(member);
   }
 
 }
